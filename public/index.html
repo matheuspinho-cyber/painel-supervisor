@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel do Supervisor</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div id="loginScreen" class="login-screen">
+      <form id="loginForm" class="login-card">
+        <h1>Painel do Supervisor</h1>
+        <p>Faça login para continuar</p>
+        <input name="username" placeholder="Usuário" value="supervisor" required />
+        <input name="password" type="password" placeholder="Senha" value="123456" required />
+        <button type="submit">Entrar</button>
+        <small id="loginError"></small>
+      </form>
+    </div>
+
+    <div id="app" class="hidden">
+      <header>
+        <h1>Painel do Supervisor</h1>
+        <div class="header-actions">
+          <button id="themeToggle">🌙/☀️</button>
+          <button id="logoutBtn">Sair</button>
+        </div>
+      </header>
+
+      <section class="cards" id="kpiCards"></section>
+
+      <section class="panel">
+        <h2>Resumo do dia</h2>
+        <div id="todayTasks" class="today-tasks"></div>
+      </section>
+
+      <section class="grid two-col">
+        <div class="panel"><canvas id="contractsChart"></canvas></div>
+        <div class="panel"><canvas id="pendenciasChart"></canvas></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <h2>Contratos em andamento</h2>
+          <div>
+            <button id="exportContracts">Exportar contratos</button>
+          </div>
+        </div>
+        <form id="contractForm" class="inline-form">
+          <input name="nome_cliente" placeholder="Cliente" required />
+          <input name="corretor" placeholder="Corretor" required />
+          <input name="operadora" placeholder="Operadora" required />
+          <input name="tipo_plano" placeholder="Tipo de plano" required />
+          <input name="data_envio" type="date" required />
+          <select name="status">
+            <option>em análise</option>
+            <option>pendência</option>
+            <option>aprovado</option>
+            <option>cancelado</option>
+          </select>
+          <input name="observacoes" placeholder="Observações" />
+          <button type="submit">Cadastrar</button>
+        </form>
+
+        <div class="filters">
+          <input id="searchContract" placeholder="Buscar cliente" />
+          <input id="filterCorretor" placeholder="Filtrar corretor" />
+          <select id="filterStatus">
+            <option value="">Todos status</option>
+            <option value="em análise">em análise</option>
+            <option value="pendência">pendência</option>
+            <option value="aprovado">aprovado</option>
+            <option value="cancelado">cancelado</option>
+          </select>
+          <input id="filterDataInicio" type="date" />
+          <input id="filterDataFim" type="date" />
+          <button id="applyFilters">Filtrar</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Cliente</th><th>Corretor</th><th>Operadora</th><th>Tipo</th><th>Data</th><th>Status</th><th>Observações</th></tr>
+            </thead>
+            <tbody id="contractsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <h2>Pendências da equipe</h2>
+          <button id="exportPendencias">Exportar pendências</button>
+        </div>
+        <form id="pendenciaForm" class="inline-form">
+          <input name="cliente" placeholder="Cliente" required />
+          <input name="corretor" placeholder="Corretor" required />
+          <input name="tipo_pendencia" placeholder="Tipo de pendência" required />
+          <input name="descricao" placeholder="Descrição" required />
+          <select name="prioridade"><option>alta</option><option>média</option><option>baixa</option></select>
+          <input name="prazo" type="date" required />
+          <select name="status"><option>recebido</option><option>resolvendo</option><option>aguardando operadora</option><option>resolvido</option></select>
+          <button type="submit">Cadastrar</button>
+        </form>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Cliente</th><th>Corretor</th><th>Tipo</th><th>Descrição</th><th>Prioridade</th><th>Prazo</th><th>Status</th></tr>
+            </thead>
+            <tbody id="pendenciasTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="grid two-col">
+        <div class="panel">
+          <h2>Ranking de corretores</h2>
+          <div id="rankingCards" class="ranking"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Tarefas do dia</h2>
+          <form id="taskForm" class="inline-form">
+            <input name="titulo" placeholder="Tarefa" required />
+            <select name="prioridade"><option>alta</option><option>média</option><option>baixa</option></select>
+            <input name="horario" type="time" required />
+            <input name="data" type="date" required />
+            <button type="submit">Adicionar</button>
+          </form>
+          <ul id="tasksList" class="tasks-list"></ul>
+        </div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
