@@ -1,0 +1,10 @@
+{
+  "name": "painel-supervisor",
+  "version": "1.0.0",
+  "description": "Painel do Supervisor para operação comercial de planos de saúde",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "supervisor",
+      "password": "123456",
+      "nome": "Supervisor Comercial"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "nome_cliente": "Ana Souza",
+      "corretor": "Carlos Mendes",
+      "operadora": "Unimed",
+      "tipo_plano": "Empresarial",
+      "data_envio": "2026-03-07",
+      "status": "em análise",
+      "observacoes": "Aguardando retorno da operadora"
+    },
+    {
+      "id": 2,
+      "nome_cliente": "Roberto Lima",
+      "corretor": "Fernanda Alves",
+      "operadora": "Amil",
+      "tipo_plano": "Individual",
+      "data_envio": "2026-03-08",
+      "status": "aprovado",
+      "observacoes": "Contrato aprovado sem pendências"
+    },
+    {
+      "id": 3,
+      "nome_cliente": "Juliana Rocha",
+      "corretor": "Carlos Mendes",
+      "operadora": "Bradesco Saúde",
+      "tipo_plano": "Familiar",
+      "data_envio": "2026-03-09",
+      "status": "pendência",
+      "observacoes": "Faltando comprovante de residência"
+    },
+    {
+      "id": 4,
+      "nome_cliente": "Paulo Nunes",
+      "corretor": "Mariana Dias",
+      "operadora": "SulAmérica",
+      "tipo_plano": "Empresarial",
+      "data_envio": "2026-03-10",
+      "status": "cancelado",
+      "observacoes": "Cliente desistiu da contratação"
+    }
+  ],
+  "pendencias": [
+    {
+      "id": 1,
+      "cliente": "Juliana Rocha",
+      "corretor": "Carlos Mendes",
+      "tipo_pendencia": "Documento",
+      "descricao": "Enviar comprovante de residência atualizado",
+      "prioridade": "alta",
+      "prazo": "2026-03-09",
+      "status": "resolvendo"
+    },
+    {
+      "id": 2,
+      "cliente": "Ana Souza",
+      "corretor": "Carlos Mendes",
+      "tipo_pendencia": "Validação",
+      "descricao": "Confirmar data de vigência",
+      "prioridade": "média",
+      "prazo": "2026-03-11",
+      "status": "aguardando operadora"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "titulo": "Reunião com corretores",
+      "prioridade": "alta",
+      "horario": "09:00",
+      "data": "2026-03-10",
+      "concluida": false
+    },
+    {
+      "id": 2,
+      "titulo": "Checar contratos pendentes",
+      "prioridade": "média",
+      "horario": "11:30",
+      "data": "2026-03-10",
+      "concluida": false
+    }
+  ]
+}
